@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&display=swap');
+
+:root {
+  --bg: #080810;
+  --bg-card: #111118;
+  --bg-card2: #16161f;
+  --blue: #2563eb;
+  --blue-bright: #3b82f6;
+  --blue-glow: rgba(37, 99, 235, 0.4);
+  --blue-lt: #60a5fa;
+  --white: #ffffff;
+  --muted: rgba(255, 255, 255, 0.55);
+  --border: rgba(37, 99, 235, 0.35);
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-hero: 'Barlow Condensed', 'Impact', sans-serif;
+  --font-body: 'Rajdhani', system-ui, sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --max-w: 1100px;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Marquee */
+@keyframes mLeft {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(-50%)
+  }
+}
+
+@keyframes mRight {
+  from {
+    transform: translateX(-50%)
+  }
+
+  to {
+    transform: translateX(0)
+  }
+}
+
+.marquee-l {
+  display: flex;
+  width: max-content;
+  animation: mLeft 20s linear infinite;
+}
+
+.marquee-r {
+  display: flex;
+  width: max-content;
+  animation: mRight 20s linear infinite;
+}
+
+/* Fade up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.fu {
+  animation: fadeUp 0.7s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.d1 {
+  animation-delay: .1s
+}
+
+.d2 {
+  animation-delay: .22s
+}
+
+.d3 {
+  animation-delay: .36s
+}
+
+.d4 {
+  animation-delay: .5s
+}
+
+.d5 {
+  animation-delay: .64s
+}
+
+/* Radar rings */
+@keyframes radar {
+  0% {
+    transform: scale(.7);
+    opacity: .25
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0
+  }
+}
+
+.radar {
+  border-radius: 50%;
+  border: 1px solid rgba(37, 99, 235, .18);
+  animation: radar 4s ease-out infinite;
+}
+
+/* Button glow pulse */
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px 4px rgba(37, 99, 235, .8)
+  }
+
+  50% {
+    box-shadow: 0 0 50px 15px rgba(37, 99, 235, 1)
+  }
+}
+
+.btn-glow {
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+/* Accordion open */
+details[open] summary .acc-chevron {
+  transform: rotate(180deg);
+}
+
+.acc-chevron {
+  transition: transform .25s ease;
+}
